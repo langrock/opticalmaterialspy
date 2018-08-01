@@ -100,10 +100,10 @@ class Ktp(_Material):
 
 # http://www.goochandhousego.com/wp-content/pdfs/LNmatProperties.pdf
 class Ln(_Material):
-    def __init__(self, axis, temperatureCelcius=20.):
+    def __init__(self, axis, temperatureCelsius=20.):
         _Material.__init__(self)
         assert(axis in ['o', 'e'])
-        self.T = temperatureCelcius
+        self.T = temperatureCelsius
         self.F = (self.T - 24.5) * (self.T + 570.5)
 
         self.A = [None]*4
@@ -132,8 +132,8 @@ class Ln(_Material):
                B[2]*F - A[3]*wavelength**2
 
 class Tfln(Ln):
-    def __init__(self, axis, temperatureCelcius=20.):
-        Ln.__init__(self, axis, temperatureCelcius)
+    def __init__(self, axis, temperatureCelsius=20.):
+        Ln.__init__(self, axis, temperatureCelsius)
 
         eps_1550_orig = super(Tfln, self)._eps(1550)
 
@@ -183,10 +183,10 @@ class LnMg(_Material):
 
 # Gayer, 2008, Temperature and wavelength dependent refractive index equations for MgO-doped congruent and stoichiometric LiNbO3
 class LnMgTemp(_Material):
-    def __init__(self, axis, temperatureCelcius=20.):
+    def __init__(self, axis, temperatureCelsius=20.):
         _Material.__init__(self)
         assert(axis in ['o', 'e'])
-        self.T = temperatureCelcius
+        self.T = temperatureCelsius
         self.F = (self.T - 24.5) * (self.T + 570.82)
         self.A = [None]*6
         self.B = [None]*6
